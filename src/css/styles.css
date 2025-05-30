@@ -5,17 +5,35 @@
   box-sizing: border-box;
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   color: white;
-  animation: fadeIn 0.5s ease-in-out;
   background: linear-gradient(135deg, rgb(37, 53, 81), #2a5298);
-  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-header {
+
+/* Centrar header y secciones */
+header,
+section,
+footer {
   width: 100%;
-  background-color: transparent;
-  animation: fadeIn 0.5s ease-in-out;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
+
+/* Ajustar la presentación */
+.presentacion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* animacion */
 #start {
   position: absolute;
@@ -97,9 +115,12 @@ nav .center-nav a:hover::before {
   transform: scaleX(1);
 }
 .text {
-  position: relative;
-  top: 10rem;
-  left: 11rem;
+  position: static;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+  left: unset;
+  top: unset;
   letter-spacing: 1px;
   animation: fadeInUp 1s ease-in-out;
 }
@@ -134,95 +155,111 @@ nav .center-nav a:hover::before {
   animation: fadeInUp 1s ease-in-out 0.5s backwards;
 }
 .productos {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
   display: flex;
-  width: 90%;
-  padding: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  margin: 0 auto 2rem auto;
+  gap: 20px;
   animation: slideInfromBottom 1s ease-in-out 1.5 backwards;
 }
 
-.productos img{
-    width: 100%;
-    height: 100px;
-    margin-left: 20px;
-    object-fit: cover;
-    border: 2px solid white;
-    transition: transform 0.3s ease;
-    animation: fadeInUp 1s ease-in-out 0.5s backwards;
+.productos img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid white;
+  transition: transform 0.3s ease;
+  animation: fadeInUp 1s ease-in-out 0.5s backwards;
 }
 .productos img:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 30px rgb(255, 77, 0);
-}
-.productos-toggle img {
-    position: absolute;
-    width: 38%;
-    height: 74%;
-    right: 47px;
-    top: 7rem;
-    box-shadow:  rgba(255, 255, 255, 0.5);
-    animation: fadeInUp 1s ease-in-out 0.5s backwards;
-}
-.productos, productos-toggle {
-    display: flex;  
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgb(255, 77, 0);
 }
 .productos-toggle {
-   /* display: none; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
 }
-.productos-toggle img.active {
-    display: block;
+.productos-toggle img {
+  display: block;
+  position: static;
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
 }
-/* Aninmacion */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+
+/* Centrar formulario de contacto */
+.contacto {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+.contacto form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+
+.contacto label,
+.contacto input,
+.contacto textarea,
+.contacto button {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: left;
 }
-@keyframes slideInfromBottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+
+.contacto button {
+  width: auto;
+  align-self: center;
 }
-@keyframes rotateIn{
-    from {
-        transform: rotate3d(0, 0, 1, -200deg);
-        opacity: 0;
-    }
-    to{
-        transform: none;
-        opacity: 1;
-    }
+
+/* footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+header,
+section,
+footer {
+  margin-bottom: 2rem;
+}
+
+.contacto {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+footer {
+  margin-bottom: 0;
 }
 
 /* Responsive: Tablets y móviles */
@@ -242,55 +279,25 @@ nav .center-nav a:hover::before {
 }
 
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-  nav img {
-    margin-bottom: 10px;
-  }
-  .center-nav {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .center-nav a {
-    margin: 10px 0;
-    font-size: 1.1rem;
-  }
-  .social {
-    margin-top: 10px;
-  }
-  .text {
-    display: flex;
-    flex-direction: column;
-    left: 1rem;
-    top: 3rem;
-    width: 95%;
-  }
-  .text h1 {
-    font-size: 2rem;
+  header,
+  section,
+  footer {
+    max-width: 100%;
+    padding: 0 10px;
   }
   .productos {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 5px;
-    position: static;
-    transform: none;
+    flex-direction: column;
+    gap: 10px;
   }
   .productos img {
-    width: 45%;
+    width: 90%;
     height: 80px;
-    margin: 5px;
   }
   .productos-toggle img {
-    display: none;
-    width: 80%;
-    height: auto;
-    right: 10%;
-    /* top: 10rem; */
+    width: 90%;
+  }
+  .contacto {
+    max-width: 100%;
   }
 }
 
