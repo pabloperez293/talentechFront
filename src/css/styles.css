@@ -19,7 +19,6 @@ section,
 footer {
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 2rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +75,14 @@ social a {
   transition: all 0.3s ease;
   animation: fadeIn 0.5s ease-in-out;
 }
-
+.navber{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
 nav .center-nav a:first-child {
   color: red;
 }
